@@ -10,8 +10,8 @@ fn main() -> io::Result<()> {
     let iteration_count = 100;
     let multiplication_count = 10;
     // let multiplication_factor = 4;
-    // let multiplication_factor = 1024 * 1024;
-    let multiplication_factor = 100000000;
+    let multiplication_factor = 1024 * 1024 * 10;
+    // let multiplication_factor = 100000000;
 
     // Shard configuration
     let shard_count: usize = 4;

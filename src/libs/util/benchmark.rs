@@ -86,11 +86,11 @@ pub fn run_benchmark(
     let mut benchmark_data = BenchmarkData::new();
 
     // Derived variables
-    let object_size = object_size;
-    let shard_size = object_size / shard_count;
+    let mut object_size = object_size;
+    let mut shard_size = object_size / shard_count;
     let parity_count = parity_count;
     let total_count = shard_count + parity_count;
-    let mut target_bandwidth = target_bandwidth;
+    let target_bandwidth = target_bandwidth;
 
     // Reusable Variables
     let mut start: time::Instant;
@@ -205,10 +205,10 @@ pub fn run_benchmark(
 
             benchmark_data.print_csv_contents();
         }
-        // object_size += multiplication_factor;
-        // shard_size += multiplication_factor / shard_count;
+        object_size *= multiplication_factor;
+        shard_size *= multiplication_factor;
         // parity_count += multiplication_factor;
-        target_bandwidth = Some(target_bandwidth.unwrap() + multiplication_factor);
+        // target_bandwidth = Some(target_bandwidth.unwrap() + multiplication_factor);
     }
     Ok(())
 }
