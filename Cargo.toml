@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 reed-solomon-erasure = { version = "6.0", features = [ "simd-accel" ] }
+rand = { version = "0.7.2", features = ["small_rng"] }
