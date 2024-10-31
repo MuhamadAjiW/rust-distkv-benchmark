@@ -8,18 +8,17 @@ extern crate reed_solomon_erasure;
 fn main() -> io::Result<()> {
     // Benchmarking configuration
     let iteration_count = 100;
-    // let multiplication_count = 10;
-    let multiplication_count = 1;
+    let multiplication_count = 10;
     // let multiplication_factor = 4;
     // let multiplication_factor = 1024 * 1024;
-    let multiplication_factor = 10000000;
+    let multiplication_factor = 100000000;
 
     // Shard configuration
     let shard_count: usize = 4;
     let recovery_count: usize = 2;
 
     // Memory configuration
-    let object_size = 1024 * 1024 * 100;
+    let object_size = 1024 * 1024 * 10;
 
     // Bandwidth configuration
     // let target_bandwidth = Some(1000000);

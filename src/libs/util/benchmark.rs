@@ -22,7 +22,8 @@ fn simulate_data_transfer(
     write!(file, "{simulation_str}")?;
 
     if let Some(target_bandwidth) = target_bandwidth {
-        let target_duration = object_size as f64 / (target_bandwidth as f64 * 1.0);
+        let target_bandwidth_bytes = target_bandwidth as f64 / 8.0;
+        let target_duration = object_size as f64 / target_bandwidth_bytes;
         let elapsed = start.elapsed().as_secs_f64();
         if elapsed < target_duration {
             thread::sleep(time::Duration::from_secs_f64(target_duration - elapsed));
@@ -63,7 +64,7 @@ pub fn get_avg_bandwidth(
             .expect("Failed to simulate data transfer");
         let end = start.elapsed();
 
-        avg_bandwidth += object_size as f64 / end.as_secs_f64();
+        avg_bandwidth += object_size as f64 / end.as_secs_f64() * 8.0;
     }
     avg_bandwidth = avg_bandwidth / iteration_count as f64;
 
@@ -110,7 +111,7 @@ pub fn run_benchmark(
 
             let mut master_copy: Vec<Vec<u8>> = [].to_vec();
 
-            for _ in 0..(shard_count) {
+            for _ in 0..(total_count) {
                 let array: Vec<u8> = (0..shard_size).map(|_| 0).collect();
                 master_copy.push(array);
             }

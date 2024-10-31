@@ -42,7 +42,7 @@ impl BenchmarkData {
     }
 
     pub fn print_csv_header(&self) {
-        println!("iteration,object_size(byte),fail_tolerance,avg_bandwidth(bytes/s),ec_setup_time(s),ec_recovery_time(s),ec_shard,ec_memory_usage(byte),ec_bandwidth_setup_usage(byte),ec_bandwidth_recovery_usage(byte),r_setup_time(s),r_recovery_time(s),r_node_count,r_memory_usage(byte),r_bandwidth_setup_usage(byte),r_bandwidth_recovery_usage(byte)");
+        println!("iteration,object_size(byte),fail_tolerance,avg_bandwidth(bit/s),ec_setup_time(s),ec_recovery_time(s),ec_shard,ec_memory_usage(byte),ec_bandwidth_setup_usage(byte),ec_bandwidth_recovery_usage(byte),r_setup_time(s),r_recovery_time(s),r_node_count,r_memory_usage(byte),r_bandwidth_setup_usage(byte),r_bandwidth_recovery_usage(byte)");
     }
 
     pub fn print_csv_contents(&self) {
